@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — 4wCycle Admin</title>
+    <link rel="icon" href="../images/logo.png?v=3" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="admin-header">
+        <a href="../index.html" class="logo">
+            <img src="../images/logo.png?v=3" alt="4wCycle" />
+        </a>
+        <span class="admin-header-title">Submissions Dashboard</span>
+        <span class="badge" id="pendingBadge">0 pending</span>
+        <button class="btn btn-ghost btn-sm btn-logout" id="logoutBtn">Sign Out</button>
+    </header>
+
+    <!-- BODY -->
+    <main class="admin-body">
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-card pending">
+                <div class="stat-num" id="statPending">—</div>
+                <div class="stat-label">Pending Review</div>
+            </div>
+            <div class="stat-card approved">
+                <div class="stat-num" id="statApproved">—</div>
+                <div class="stat-label">Published</div>
+            </div>
+            <div class="stat-card rejected">
+                <div class="stat-num" id="statRejected">—</div>
+                <div class="stat-label">Rejected</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-status="pending">Pending</button>
+            <button class="tab" data-status="approved">Approved</button>
+            <button class="tab" data-status="rejected">Rejected</button>
+            <button class="tab" data-status="">All</button>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards" id="cardsContainer">
+            <div class="loading">Loading submissions…</div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <img id="lightboxImg" src="" alt="" />
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

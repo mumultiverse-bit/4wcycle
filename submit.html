@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share Your Ride — 4wCycle</title>
+    <meta name="description"
+        content="Share your Singapore cycling experience with the 4wCycle community. Upload photos, describe your route and story." />
+    <link rel="icon" href="images/logo.png?v=3" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
+    <style>
+        .submit-hero {
+            min-height: 38vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0c 0%, #12121a 60%, #0d1b2a 100%);
+            padding: 8rem 1rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 60% 40%, rgba(0, 180, 255, 0.12) 0%, transparent 70%);
+        }
+
+        .submit-hero-content {
+            position: relative;
+        }
+
+        .submit-hero .tag {
+            margin-bottom: 1rem;
+        }
+
+        .submit-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .submit-hero p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1.1rem;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .submit-section {
+            padding: 5rem 0;
+            background: var(--clr-bg);
+        }
+
+        .submit-card {
+            background: var(--clr-surface);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            padding: clamp(2rem, 5vw, 3.5rem);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 0.85rem 1rem;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--clr-accent);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media(max-width:600px) {
+            .form-row-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Photo upload */
+        .photo-drop {
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            position: relative;
+        }
+
+        .photo-drop:hover,
+        .photo-drop.dragover {
+            border-color: var(--clr-accent);
+            background: rgba(0, 180, 255, 0.05);
+        }
+
+        .photo-drop input[type=file] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo-drop-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-drop p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .photo-drop strong {
+            color: var(--clr-accent);
+        }
+
+        .photo-previews {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .photo-previews img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-hint {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 0.4rem;
+        }
+
+        /* States */
+        .submit-success,
+        .submit-error-msg {
+            display: none;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .submit-success {
+            background: rgba(0, 200, 100, 0.12);
+            border: 1px solid rgba(0, 200, 100, 0.3);
+            color: #4ade80;
+        }
+
+        .submit-error-msg {
+            background: rgba(255, 60, 60, 0.12);
+            border: 1px solid rgba(255, 60, 60, 0.3);
+            color: #f87171;
+        }
+
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#rides">Routes</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#community">Community</a></li>
+            </ul>
+            <a href="submit.html" class="btn btn-nav">Share a Ride</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="submit-hero">
+        <div class="submit-hero-content">
+            <span class="tag">Community Stories</span>
+            <h1>Share Your Ride</h1>
+            <p>Tell the 4wCycle community about your Singapore cycling adventure. Upload photos, describe your route,
+                and inspire others to explore.</p>
+        </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="submit-section">
+        <div class="container">
+            <div class="submit-card">
+                <div class="submit-success" id="successMsg">
+                    🎉 Thanks! Your ride story has been submitted and is pending review. We'll publish it soon!
+                </div>
+                <div class="submit-error-msg" id="errorMsg"></div>
+
+                <form id="rideForm" novalidate>
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" placeholder="e.g. Ahmad Rizal" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="e.g. you@email.com" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Ride Title *</label>
+                        <input type="text" id="title" name="title"
+                            placeholder="e.g. Dawn ride from ECP to Marina Barrage" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="route">Route Description *</label>
+                        <textarea id="route" name="route"
+                            placeholder="Describe the route — start point, key waypoints, distance, elevation..."
+                            required></textarea>
+                        <p class="form-hint">Include start/end locations, distance, and any notable landmarks.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Your Experience *</label>
+                        <textarea id="experience" name="experience"
+                            placeholder="Tell us about your ride — how did it feel, what did you see, any highlights or challenges..."
+                            required style="min-height:160px;"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Photos (up to 5)</label>
+                        <div class="photo-drop" id="photoDrop">
+                            <input type="file" id="photos" name="photos" accept="image/*" multiple />
+                            <div class="photo-drop-icon">📸</div>
+                            <p><strong>Click to upload</strong> or drag & drop</p>
+                            <p>JPG, PNG, WEBP — max 10 MB each</p>
+                        </div>
+                        <div class="photo-previews" id="photoPreviews"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                        <span id="btnText">Submit My Ride</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <a href="index.html" class="logo footer-logo">
+                <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+            </a>
+            <p class="footer-copy">© 2025 4wCycle · Singapore's Cycling Community</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Photo previews
+        const photoInput = document.getElementById('photos');
+        const previews = document.getElementById('photoPreviews');
+        const drop = document.getElementById('photoDrop');
+        let selectedFiles = [];
+
+        function showPreviews(files) {
+            previews.innerHTML = '';
+            [...files].forEach(f => {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    previews.appendChild(img);
+                };
+                reader.readAsDataURL(f);
+            });
+        }
+
+        photoInput.addEventListener('change', () => {
+            selectedFiles = [...photoInput.files].slice(0, 5);
+            showPreviews(selectedFiles);
+        });
+
+        drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('dragover'); });
+        drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+        drop.addEventListener('drop', e => {
+            e.preventDefault();
+            drop.classList.remove('dragover');
+            selectedFiles = [...e.dataTransfer.files].filter(f => f.type.startsWith('image/')).slice(0, 5);
+            showPreviews(selectedFiles);
+        });
+
+        // Form submit
+        document.getElementById('rideForm').addEventListener('submit', async e => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const successMsg = document.getElementById('successMsg');
+            const errorMsg = document.getElementById('errorMsg');
+
+            btn.classList.add('btn-loading');
+            btnText.textContent = 'Submitting…';
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            const fd = new FormData();
+            fd.append('name', document.getElementById('name').value.trim());
+            fd.append('email', document.getElementById('email').value.trim());
+            fd.append('title', document.getElementById('title').value.trim());
+            fd.append('route', document.getElementById('route').value.trim());
+            fd.append('experience', document.getElementById('experience').value.trim());
+            selectedFiles.forEach(f => fd.append('photos', f));
+
+            try {
+                const res = await fetch('/api/submissions/submit', { method: 'POST', body: fd });
+                const data = await res.json();
+                if (res.ok) {
+                    successMsg.style.display = 'block';
+                    e.target.reset();
+                    previews.innerHTML = '';
+                    selectedFiles = [];
+                    window.scrollTo({ top: successMsg.offsetTop - 120, behavior: 'smooth' });
+                } else {
+                    errorMsg.textContent = data.error || 'Something went wrong. Please try again.';
+                    errorMsg.style.display = 'block';
+                }
+            } catch {
+                errorMsg.textContent = 'Network error. Please check your connection and try again.';
+                errorMsg.style.display = 'block';
+            } finally {
+                btn.classList.remove('btn-loading');
+                btnText.textContent = 'Submit My Ride';
+            }
+        });
+    </script>
+</body>
+
+</html>
