@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stories from the Saddle — 4wCycle Blog</title>
+    <meta name="description"
+        content="Read cycling stories, training tips, gear reviews, and route guides from the 4wCycle community." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://4wcycle.com/blog.html" />
+
+    <!-- OG -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://4wcycle.com/blog.html" />
+    <meta property="og:title" content="Stories from the Saddle — 4wCycle Blog" />
+    <meta property="og:description"
+        content="Cycling stories, training guides, gear reviews, and routes. Straight from the saddle." />
+    <meta property="og:image" content="https://4wcycle.com/images/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://4wcycle.com/images/og-image.png" />
+    <meta name="theme-color" content="#f97316" />
+    <link rel="icon" href="images/logo.png?v=3" type="image/png" />
+    <link rel="apple-touch-icon" href="images/logo.png?v=3" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
+    <link rel="stylesheet" href="css/blog.css?v=3" />
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#rides">Rides</a></li>
+                <li><a href="index.html#gear">Gear</a></li>
+                <li><a href="index.html#community">Community</a></li>
+                <li><a href="blog.html" class="nav-active">Stories</a></li>
+            </ul>
+            <a href="index.html#join" class="btn btn-nav">Join the Ride</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- BLOG HERO -->
+    <section class="blog-pg-hero">
+        <div class="blog-pg-hero-bg">
+            <img src="images/stories.jpeg" alt="Cyclist gripping handlebars on a mountain descent" />
+            <div class="blog-pg-hero-overlay"></div>
+        </div>
+        <div class="blog-pg-hero-content">
+            <span class="tag">The 4wCycle Journal</span>
+            <h1 class="hero-title">Stories from<br /><em>the Saddle</em></h1>
+            <p class="hero-subtitle">Training wisdom, route diaries, gear deep-dives, and the kind of stories that make
+                you want to ride.</p>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <div class="blog-filter-bar">
+        <div class="container">
+            <div class="filter-inner">
+                <div class="filter-tabs" id="filterTabs">
+                    <button class="filter-tab active" data-cat="all">All Stories</button>
+                    <button class="filter-tab" data-cat="training">Training</button>
+                    <button class="filter-tab" data-cat="routes">Routes</button>
+                    <button class="filter-tab" data-cat="gear">Gear</button>
+                    <button class="filter-tab" data-cat="lifestyle">Lifestyle</button>
+                    <button class="filter-tab" data-cat="nutrition">Nutrition</button>
+                </div>
+                <div class="blog-search-wrap">
+                    <input type="search" id="blogSearch" placeholder="Search stories…" aria-label="Search blog" />
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED POST -->
+    <main class="blog-main">
+        <div class="container">
+
+            <article class="featured-post reveal" data-cat="training">
+                <a href="article.html" class="featured-post-img">
+                    <img src="images/hero.png?v=4" alt="Cyclist at sunrise on Col du Galibier" />
+                    <span class="post-category">Training</span>
+                </a>
+                <div class="featured-post-body">
+                    <div class="post-meta-row">
+                        <span class="post-date">Feb 18, 2026</span>
+                        <span class="post-read-time">⏱ 8 min read</span>
+                        <span class="post-views">👁 4.2K views</span>
+                    </div>
+                    <h2><a href="article.html">How to Conquer Your First Alpine Climb: A Complete Training Guide</a>
+                    </h2>
+                    <p>Everything you need to know about training, nutrition, and mental preparation for high-altitude
+                        cycling. From base fitness to summit strategy — this is the guide that every aspiring climber
+                        needs.</p>
+                    <div class="post-author-row">
+                        <div class="author-avatar">JL</div>
+                        <div>
+                            <strong>Jules Laurent</strong>
+                            <span>Pro Cycling Coach · Grenoble, France</span>
+                        </div>
+                    </div>
+                    <a href="article.html" class="btn btn-primary" style="margin-top:1.5rem">Read the Full Story</a>
+                </div>
+            </article>
+
+            <!-- POST GRID -->
+            <div class="posts-grid" id="postsGrid">
+
+                <article class="post-card reveal" data-cat="routes">
+                    <a href="article.html" class="post-card-img">
+                        <img src="images/route.png?v=4" alt="Aerial view of mountain cycling route" loading="lazy" />
+                        <span class="post-category">Routes</span>
+                    </a>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <span class="post-date">Feb 14, 2026</span>
+                            <span class="post-read-time">⏱ 6 min</span>
+                        </div>
+                        <h3><a href="article.html">Top 10 Gravel Routes in Europe for 2026</a></h3>
+                        <p>From the Dolomites to the Pyrenees, we've scouted the best unpaved adventures on the
+                            continent.</p>
+                        <div class="post-author-row small">
+                            <div class="author-avatar sm">MR</div>
+                            <span>Maya R. · Route Editor</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card reveal" data-cat="gear">
+                    <a href="article.html" class="post-card-img">
+                        <img src="images/gear.png" alt="Premium cycling gear flat lay" loading="lazy" />
+                        <span class="post-category cat-gear">Gear</span>
+                    </a>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <span class="post-date">Feb 10, 2026</span>
+                            <span class="post-read-time">⏱ 10 min</span>
+                        </div>
+                        <h3><a href="article.html">The Best Carbon Road Bikes Under $3,000 in 2026</a></h3>
+                        <p>We tested 12 bikes across 3 months. Here's what actually delivers value at this price point.
+                        </p>
+                        <div class="post-author-row small">
+                            <div class="author-avatar sm">TK</div>
+                            <span>Tom K. · Tech Editor</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card reveal" data-cat="lifestyle">
+                    <a href="article.html" class="post-card-img">
+                        <img src="images/community.png" alt="Group of cyclists on coastal road" loading="lazy" />
+                        <span class="post-category cat-lifestyle">Lifestyle</span>
+                    </a>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <span class="post-date">Feb 5, 2026</span>
+                            <span class="post-read-time">⏱ 5 min</span>
+                        </div>
+                        <h3><a href="article.html">Cycling Tourism: Planning Your First Bike Holiday Abroad</a></h3>
+                        <p>Logistics, packing, route planning, and the mindset shift that makes a bike trip
+                            unforgettable.</p>
+                        <div class="post-author-row small">
+                            <div class="author-avatar sm">SL</div>
+                            <span>Sarah L. · Community</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card reveal" data-cat="nutrition">
+                    <a href="article.html" class="post-card-img">
+                        <img src="images/stories.jpeg" alt="Cyclist on descending mountain road" loading="lazy" />
+                        <span class="post-category cat-nutrition">Nutrition</span>
+                    </a>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <span class="post-date">Jan 30, 2026</span>
+                            <span class="post-read-time">⏱ 7 min</span>
+                        </div>
+                        <h3><a href="article.html">Fueling for a 100km Ride: What to Eat Before, During & After</a></h3>
+                        <p>Sports dietitian Anna C. breaks down the exact fueling strategy to keep you strong all day
+                            long.</p>
+                        <div class="post-author-row small">
+                            <div class="author-avatar sm">AC</div>
+                            <span>Anna C. · Dietitian</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card reveal" data-cat="training">
+                    <a href="article.html" class="post-card-img">
+                        <img src="images/hero.png?v=4" alt="Cyclist climbing mountain at sunrise" loading="lazy" />
+                        <span class="post-category">Training</span>
+                    </a>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <span class="post-date">Jan 24, 2026</span>
+                            <span class="post-read-time">⏱ 9 min</span>
+                        </div>
+                        <h3><a href="article.html">Zone 2 Training: The Slow Ride That Makes You Faster</a></h3>
+                        <p>Why elite cyclists spend 80% of their training at conversational pace — and how you can apply
+                            this.</p>
+                        <div class="post-author-row small">
+                            <div class="author-avatar sm">JL</div>
+                            <span>Jules L. · Coaching</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="post-card reveal" data-cat="gear">
+                    <a href="article.html" class="post-card-img">
+                        <img src="images/route.png?v=4" alt="Mountain cycling route" loading="lazy" />
+                        <span class="post-category cat-gear">Gear</span>
+                    </a>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <span class="post-date">Jan 18, 2026</span>
+                            <span class="post-read-time">⏱ 6 min</span>
+                        </div>
+                        <h3><a href="article.html">Power Meters Explained: Do You Actually Need One?</a></h3>
+                        <p>The data-driven case for training with power — and the honest reasons you might not need it
+                            yet.</p>
+                        <div class="post-author-row small">
+                            <div class="author-avatar sm">TK</div>
+                            <span>Tom K. · Tech Editor</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- /posts-grid -->
+
+            <!-- EMPTY STATE -->
+            <div class="no-results" id="noResults" hidden>
+                <span>🚴</span>
+                <p>No stories found. Try a different search or category.</p>
+            </div>
+
+            <!-- LOAD MORE -->
+            <div class="load-more-wrap">
+                <button class="btn btn-outline" id="loadMoreBtn">Load More Stories</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SIDEBAR NEWSLETTER -->
+    <section class="blog-newsletter section">
+        <div class="container">
+            <div class="blog-nl-inner reveal">
+                <div class="blog-nl-text">
+                    <span class="tag">Weekly Digest</span>
+                    <h2 class="section-title">Never Miss a Story</h2>
+                    <p class="body-text">The best cycling stories, every Friday. No spam — just the good stuff.</p>
+                </div>
+                <form class="blog-nl-form" id="blogNlForm">
+                    <input type="email" placeholder="Your email address" required />
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+                </a>
+                <p>For those who live to ride. Cycling lifestyle, community, and culture.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram" class="social-btn">📷</a>
+                    <a href="#" aria-label="Strava" class="social-btn">🏃</a>
+                    <a href="#" aria-label="YouTube" class="social-btn">▶️</a>
+                    <a href="#" aria-label="Twitter/X" class="social-btn">𝕏</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="fl-col">
+                    <h4>Explore</h4>
+                    <a href="#">Routes</a><a href="#">Events</a><a href="#">Training</a><a href="#">Races</a>
+                </div>
+                <div class="fl-col">
+                    <h4>Gear</h4>
+                    <a href="#">Reviews</a><a href="#">Editor's Picks</a><a href="#">Tech Guides</a>
+                </div>
+                <div class="fl-col">
+                    <h4>Community</h4>
+                    <a href="#">Forum</a><a href="#">Group Rides</a><a href="blog.html">Blog</a>
+                </div>
+                <div class="fl-col">
+                    <h4>About</h4>
+                    <a href="#">Our Story</a><a href="#">Team</a><a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 4wCycle. All rights reserved. Made with ❤️ for cyclists everywhere.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+
+</html>

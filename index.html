@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4wCycle — Ride. Explore. Live.</title>
+  <meta name="description"
+    content="4wCycle is Singapore's home for cycling culture. Discover PCN routes, gear reviews, training guides, and a thriving community of Singapore cyclists." />
+  <meta name="keywords"
+    content="cycling Singapore, PCN routes, park connector, cycling community Singapore, bike gear, cycling lifestyle Singapore, East Coast cycling" />
+  <meta name="author" content="4wCycle" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://4wcycle.com/" />
+
+  <!-- Favicon & Theme -->
+  <meta name="theme-color" content="#f97316" />
+  <link rel="icon" href="images/logo.png?v=3" type="image/png" />
+  <link rel="apple-touch-icon" href="images/logo.png?v=3" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://4wcycle.com/" />
+  <meta property="og:site_name" content="4wCycle" />
+  <meta property="og:title" content="4wCycle — Ride. Explore. Live." />
+  <meta property="og:description"
+    content="Join 4,200+ cyclists across Singapore and SEA. Discover the best PCN routes, gear picks, and a community that lives to ride." />
+  <meta property="og:image" content="https://4wcycle.com/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"
+    content="4wCycle — A cyclist at sunrise on a mountain road with the tagline Ride. Explore. Live." />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@4wcycle" />
+  <meta name="twitter:creator" content="@4wcycle" />
+  <meta name="twitter:title" content="4wCycle — Ride. Explore. Live." />
+  <meta name="twitter:description"
+    content="Join 4,200+ cyclists across Singapore and SEA. Discover the best PCN routes, gear picks, and a community that lives to ride." />
+  <meta name="twitter:image" content="https://4wcycle.com/images/og-image.png" />
+  <meta name="twitter:image:alt" content="4wCycle — Cyclist at sunrise on a mountain road" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
+</head>
+
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#rides">Rides</a></li>
+        <li><a href="#gear">Gear</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="blog.html">Stories</a></li>
+      </ul>
+      <a href="#join" class="btn btn-nav">Join the Ride</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="images/hero.png?v=4" alt="Cyclist at sunrise on mountain road" class="hero-img" id="heroImg" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🚴 Singapore Cycling Community</div>
+      <h1 class="hero-title">
+        Every Road Is<br /><em>An Adventure</em>
+      </h1>
+      <p class="hero-subtitle">
+        Singapore's cycling community — from Park Connectors at dawn to weekend rides at East Coast Park. Join us.
+      </p>
+      <div class="hero-actions">
+        <a href="#rides" class="btn btn-primary">Explore Routes</a>
+        <a href="#community" class="btn btn-ghost">Meet the Community</a>
+      </div>
+    </div>
+    <div class="hero-stats-bar">
+      <div class="stat-item">
+        <span class="stat-num" data-target="4200">0</span>
+        <span class="stat-label">SG Riders</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="420">0</span>
+        <span class="stat-label">PCN Routes</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="700">0</span>
+        <span class="stat-label">KM of Paths</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="52">0</span>
+        <span class="stat-label">Weekly Rides</span>
+      </div>
+    </div>
+    <a href="#about" class="hero-scroll-hint" aria-label="Scroll down">
+      <span class="scroll-wheel"></span>
+    </a>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="tag">Our Philosophy</span>
+          <h2 class="section-title">More Than Miles.
+            <br /><em>A Way of Life.</em>
+          </h2>
+          <p class="body-text">
+            Cycling in Singapore is unlike anywhere else — from the tranquil corridors of the North-South PCN at dawn,
+            to the breezy stretch of East Coast Park on a weekend morning, every ride is a reminder of why we love this
+            city.
+          </p>
+          <p class="body-text">
+            At 4wCycle, we're building Singapore's most passionate cycling community — connecting riders across HDB
+            estates,
+            nature reserves, and coastal paths, one pedal stroke at a time.
+          </p>
+          <a href="#community" class="btn btn-primary" style="margin-top:1.5rem">Join Our Community</a>
+        </div>
+        <div class="about-visual reveal">
+          <div class="floating-card card-1">
+            <span class="card-icon">🌿</span>
+            <strong>PCN Routes</strong>
+            <span>700+ km of paths mapped</span>
+          </div>
+          <div class="floating-card card-2">
+            <span class="card-icon">⚡</span>
+            <strong>Training Tips</strong>
+            <span>Beat the heat & humidity</span>
+          </div>
+          <div class="floating-card card-3">
+            <span class="card-icon">🤝</span>
+            <strong>Ride Together</strong>
+            <span>Weekly group rides island-wide</span>
+          </div>
+          <div class="about-image-wrap">
+            <img src="images/route.png?v=4" alt="Aerial view of scenic cycling route" />
+          </div>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar reveal">
+          <div class="pillar-icon">🌿</div>
+          <h3>Explore</h3>
+          <p>Discover Singapore's Park Connector Network, nature reserves, and hidden cycling corridors island-wide.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">💪</div>
+          <h3>Train</h3>
+          <p>SG-specific training guides built for heat, humidity, and urban cycling — from beginners to competitive
+            riders.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">🔧</div>
+          <h3>Gear Up</h3>
+          <p>Honest reviews and curated picks for Singapore riding conditions — lightweight, heat-resistant, and
+            practical.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-icon">🇸🇬</div>
+          <h3>Connect</h3>
+          <p>Find your riding kakis. Join weekly group rides, cycling events, and a community that keeps Singapore
+            rolling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RIDES ===================== -->
+  <section class="rides section" id="rides">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Featured Routes</span>
+        <h2 class="section-title">Singapore's Best Rides</h2>
+        <p class="section-sub">Handpicked routes across the island — from scenic PCN loops to coast-to-coast challenges.
+        </p>
+      </div>
+      <div class="rides-grid">
+
+        <article class="ride-card reveal">
+          <div class="ride-card-img" style="background-image: url('images/hero.png?v=4')">
+            <span class="ride-badge badge-hard">Challenge</span>
+          </div>
+          <div class="ride-card-body">
+            <div class="ride-meta">
+              <span>🌿 North-South PCN</span>
+              <span>⭐ 4.9</span>
+            </div>
+            <h3>Island Cross Loop</h3>
+            <p>The ultimate Singapore challenge — a full cross-island ride linking Woodlands to Changi via the
+              North-South and Eastern PCN corridors.</p>
+            <div class="ride-stats">
+              <span class="rs">📏 68 km</span>
+              <span class="rs">↑ 320 m</span>
+              <span class="rs">⏱ 3–4 hrs</span>
+            </div>
+            <a href="#" class="ride-link">View Route →</a>
+          </div>
+        </article>
+
+        <article class="ride-card reveal">
+          <div class="ride-card-img" style="background-image: url('images/route.png?v=4')">
+            <span class="ride-badge badge-moderate">Moderate</span>
+          </div>
+          <div class="ride-card-body">
+            <div class="ride-meta">
+              <span>🌊 East Coast Park</span>
+              <span>⭐ 4.8</span>
+            </div>
+            <h3>East Coast Coastal Cruise</h3>
+            <p>The classic Singapore ride — smooth tarmac, sea breeze, and the best laksa pit stop at the halfway point.
+            </p>
+            <div class="ride-stats">
+              <span class="rs">📏 42 km</span>
+              <span class="rs">↑ 80 m</span>
+              <span class="rs">⏱ 1.5–2 hrs</span>
+            </div>
+            <a href="#" class="ride-link">View Route →</a>
+          </div>
+        </article>
+
+        <article class="ride-card reveal">
+          <div class="ride-card-img" style="background-image: url('images/community.png')">
+            <span class="ride-badge badge-easy">Beginner</span>
+          </div>
+          <div class="ride-card-body">
+            <div class="ride-meta">
+              <span>🌳 Chua Chu Kang</span>
+              <span>⭐ 4.7</span>
+            </div>
+            <h3>Western Wetlands Ride</h3>
+            <p>A peaceful beginner-friendly loop through Kranji Marshes, Sungei Buloh, and the scenic western reservoir
+              corridors.</p>
+            <div class="ride-stats">
+              <span class="rs">📏 28 km</span>
+              <span class="rs">↑ 95 m</span>
+              <span class="rs">⏱ 1–1.5 hrs</span>
+            </div>
+            <a href="#" class="ride-link">View Route →</a>
+          </div>
+        </article>
+
+      </div>
+      <div class="center-btn reveal">
+        <a href="#" class="btn btn-outline">Browse All Routes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GEAR ===================== -->
+  <section class="gear section" id="gear">
+    <div class="gear-bg-accent"></div>
+    <div class="container">
+      <div class="gear-inner">
+        <div class="gear-visual reveal">
+          <img src="images/gear.png" alt="Premium cycling gear flat lay" class="gear-img" />
+          <div class="gear-glow"></div>
+        </div>
+        <div class="gear-content reveal">
+          <span class="tag">Gear Lab</span>
+          <h2 class="section-title">Every Detail<br /><em>Matters</em></h2>
+          <p class="body-text">
+            The right gear can transform a good ride into an unforgettable one. We test, review, and curate the best
+            equipment so you can focus on the road ahead.
+          </p>
+          <div class="gear-features">
+            <div class="gf-item">
+              <span class="gf-check">✓</span>
+              <span>In-depth lab & real-world testing</span>
+            </div>
+            <div class="gf-item">
+              <span class="gf-check">✓</span>
+              <span>Expert mechanic insights</span>
+            </div>
+            <div class="gf-item">
+              <span class="gf-check">✓</span>
+              <span>Budget to pro-level coverage</span>
+            </div>
+            <div class="gf-item">
+              <span class="gf-check">✓</span>
+              <span>Community-rated recommendations</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">Explore Gear Reviews</a>
+        </div>
+      </div>
+
+      <div class="picks-row">
+        <h3 class="picks-title reveal">Editor's Picks 2026</h3>
+        <div class="picks-grid">
+          <div class="pick-card reveal">
+            <div class="pick-icon">🪖</div>
+            <strong>Aero Helmet</strong>
+            <span>Abus GameChanger 2.0</span>
+            <div class="pick-rating">★★★★★</div>
+          </div>
+          <div class="pick-card reveal">
+            <div class="pick-icon">👓</div>
+            <strong>Sunglasses</strong>
+            <span>Oakley Sutro Lite</span>
+            <div class="pick-rating">★★★★★</div>
+          </div>
+          <div class="pick-card reveal">
+            <div class="pick-icon">👟</div>
+            <strong>Road Shoes</strong>
+            <span>Giro Imperial</span>
+            <div class="pick-rating">★★★★☆</div>
+          </div>
+          <div class="pick-card reveal">
+            <div class="pick-icon">🔋</div>
+            <strong>Power Meter</strong>
+            <span>Garmin Rally RS200</span>
+            <div class="pick-rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMMUNITY ===================== -->
+  <section class="community section" id="community">
+    <div class="community-bg">
+      <img src="images/community.png" alt="Community of cyclists" />
+      <div class="community-overlay"></div>
+    </div>
+    <div class="container community-content">
+      <span class="tag tag-light reveal">The Community</span>
+      <h2 class="section-title light reveal">Ride Together,<br /><em>Grow Together</em></h2>
+      <p class="body-text light reveal">
+        4,200+ riders across Singapore and Southeast Asia. HDB commuters, weekend warriors, competitive racers —
+        united by a love of cycling and a passion for this island.
+      </p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial reveal">
+          <p>"4wCycle helped me discover PCN routes I never knew existed. The Island Cross Loop changed my Saturday
+            mornings forever."</p>
+          <div class="t-author">
+            <div class="t-avatar">JT</div>
+            <div>
+              <strong>Jun Wei T.</strong>
+              <span>Road Cyclist · Tampines, Singapore</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <p>"As a mum of two, I needed beginner-friendly routes. The Western Wetlands ride is now our family's Sunday
+            tradition."</p>
+          <div class="t-author">
+            <div class="t-avatar">PL</div>
+            <div>
+              <strong>Priya L.</strong>
+              <span>Leisure Cyclist · Bukit Timah, Singapore</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <p>"Found my kaki group through 4wCycle. We now do the East Coast Cruise every Saturday 6AM. Best decision I
+            made."</p>
+          <div class="t-author">
+            <div class="t-avatar">RA</div>
+            <div>
+              <strong>Rizwan A.</strong>
+              <span>Competitive Cyclist · Jurong West, Singapore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#join" class="btn btn-primary reveal">Join the Community</a>
+    </div>
+  </section>
+
+  <!-- ===================== BLOG ===================== -->
+  <section class="blog section" id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Stories & Insights</span>
+        <h2 class="section-title">From the Saddle</h2>
+        <p class="section-sub">Real stories, expert knowledge, and inspiration for every type of rider.</p>
+      </div>
+      <div class="blog-grid">
+
+        <article class="blog-card featured reveal">
+          <div class="blog-img" style="background-image:url('images/hero.png?v=4')">
+            <span class="blog-category">Training</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-date">Feb 18, 2026</div>
+            <h3>Cycling in Singapore Heat: A Complete Training Guide for Local Riders</h3>
+            <p>How to train smart in 32°C humidity — hydration, timing, clothes, and the routes that catch the best
+              breeze.
+            </p>
+            <a href="blog.html" class="read-more">Read Story →</a>
+          </div>
+        </article>
+
+        <div class="blog-side">
+          <article class="blog-card-sm reveal">
+            <div class="blog-img-sm" style="background-image:url('images/route.png?v=4')"></div>
+            <div>
+              <span class="blog-category-sm">Routes</span>
+              <h4>The Full PCN Loop: Riding All 700km of Singapore's Park Connectors</h4>
+              <a href="blog.html" class="read-more-sm">Read →</a>
+            </div>
+          </article>
+          <article class="blog-card-sm reveal">
+            <div class="blog-img-sm" style="background-image:url('images/gear.png')"></div>
+            <div>
+              <span class="blog-category-sm">Gear</span>
+              <h4>Best Lightweight Bikes for Singapore Roads in 2026</h4>
+              <a href="blog.html" class="read-more-sm">Read →</a>
+            </div>
+          </article>
+          <article class="blog-card-sm reveal">
+            <div class="blog-img-sm" style="background-image:url('images/community.png')"></div>
+            <div>
+              <span class="blog-category-sm">Community</span>
+              <h4>How I Found My Cycling Kakis: Building Community in SG</h4>
+              <a href="blog.html" class="read-more-sm">Read →</a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+        </a>
+        <p>Singapore's cycling community. Riding the island, one PCN at a time.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" class="social-btn">📷</a>
+          <a href="#" aria-label="Strava" class="social-btn">🏃</a>
+          <a href="#" aria-label="YouTube" class="social-btn">▶️</a>
+          <a href="#" aria-label="Twitter/X" class="social-btn">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <h4>Explore</h4>
+          <a href="#">Routes</a>
+          <a href="#">Events</a>
+          <a href="#">Training</a>
+          <a href="#">Races</a>
+        </div>
+        <div class="fl-col">
+          <h4>Gear</h4>
+          <a href="#">Reviews</a>
+          <a href="#">Editor's Picks</a>
+          <a href="#">Tech Guides</a>
+          <a href="#">Classifieds</a>
+        </div>
+        <div class="fl-col">
+          <h4>Community</h4>
+          <a href="#">Forum</a>
+          <a href="#">Group Rides</a>
+          <a href="#">Coaching</a>
+          <a href="#">Newsletter</a>
+        </div>
+        <div class="fl-col">
+          <h4>About</h4>
+          <a href="#">Our Story</a>
+          <a href="#">Team</a>
+          <a href="#">Brand</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 4wCycle. All rights reserved. Made with ❤️ for Singapore cyclists.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
