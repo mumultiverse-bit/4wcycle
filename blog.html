@@ -258,6 +258,26 @@
         </div>
     </main>
 
+    <!-- ===================== COMMUNITY RIDE STORIES ===================== -->
+    <section class="blog-newsletter section" id="community-stories" style="background: var(--clr-bg);">
+        <div class="container">
+            <div class="section-header reveal" style="margin-bottom:2.5rem;">
+                <span class="tag">From the Community</span>
+                <h2 class="section-title">Ride Stories by <em>Singapore Cyclists</em></h2>
+                <p class="body-text" style="max-width:540px;">Real rides shared by real riders. Approved by the 4wCycle
+                    team.</p>
+            </div>
+            <div class="posts-grid" id="communityGrid">
+                <div style="grid-column:1/-1;text-align:center;color:rgba(255,255,255,0.4);padding:3rem;">Loading
+                    community stories…</div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+                <a href="submit.html" class="btn btn-primary">📸 Share Your Ride</a>
+            </div>
+        </div>
+    </section>
+
+
     <!-- SIDEBAR NEWSLETTER -->
     <section class="blog-newsletter section">
         <div class="container">
@@ -319,6 +339,50 @@
 
     <script src="js/main.js"></script>
     <script src="js/blog.js"></script>
+    <script>
+        // Load community ride stories from API
+        (async function loadCommunityStories() {
+            const grid = document.getElementById('communityGrid');
+            try {
+                const res = await fetch('/api/submissions/published');
+                const data = await res.json();
+                if (!Array.isArray(data) || data.length === 0) {
+                    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:rgba(255,255,255,0.4);padding:3rem;">🚴 No community stories yet — be the first to <a href="submit.html" style="color:var(--clr-accent);">share yours</a>!</div>';
+                    return;
+                }
+                grid.innerHTML = data.map(s => {
+                    const photo = s.photos && s.photos.length ? `/uploads/${s.photos[0]}` : 'images/community.png';
+                    const date = new Date(s.created_at).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' });
+                    const initials = s.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+                    const excerpt = s.experience.length > 120 ? s.experience.slice(0, 120) + '…' : s.experience;
+                    return `
+                <article class="post-card reveal" data-cat="community">
+                    <div class="post-card-img" style="position:relative;overflow:hidden;aspect-ratio:16/9;">
+                        <img src="${photo}" alt="${escHtml(s.title)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                        <span class="post-category cat-lifestyle">Community</span>
+                    </div>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <span class="post-date">${date}</span>
+                            <span class="post-read-time">🗺 ${escHtml(s.route.split(',')[0])}</span>
+                        </div>
+                        <h3>${escHtml(s.title)}</h3>
+                        <p>${escHtml(excerpt)}</p>
+                        <div class="post-author-row small">
+                            <div class="author-avatar sm">${initials}</div>
+                            <span>${escHtml(s.name)}</span>
+                        </div>
+                    </div>
+                </article>`;
+                }).join('');
+            } catch (e) {
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:rgba(255,255,255,0.4);padding:2rem;">Could not load community stories.</div>';
+            }
+            function escHtml(str) {
+                return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+        })();
+    </script>
 </body>
 
 </html>
