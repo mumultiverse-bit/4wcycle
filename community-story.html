@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Ride Story — 4wCycle</title>
+    <meta name="description" content="Read a community ride story from a Singapore cyclist." />
+    <link rel="icon" href="images/logo.png?v=3" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
+    <link rel="stylesheet" href="css/blog.css?v=3" />
+    <style>
+        .story-hero {
+            min-height: 45vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 0 3rem;
+            position: relative;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .story-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+        }
+
+        .story-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%);
+        }
+
+        .story-hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 0;
+            width: 100%;
+        }
+
+        .story-hero-content .tag {
+            margin-bottom: 1rem;
+        }
+
+        .story-hero-content h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .story-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .story-meta-row .author-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+        }
+
+        .story-meta-row .author-chip .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--clr-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        /* Article body */
+        .story-body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 5rem;
+        }
+
+        .story-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .story-section h2 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--clr-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .story-section p {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: rgba(255, 255, 255, 0.82);
+            white-space: pre-wrap;
+        }
+
+        .story-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .story-photos img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: zoom-in;
+            transition: transform 0.2s;
+        }
+
+        .story-photos img:hover {
+            transform: scale(1.02);
+        }
+
+        .story-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            margin: 2.5rem 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--clr-accent);
+        }
+
+        .cta-row {
+            background: var(--clr-surface);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-row h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-row p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Loading / error */
+        .story-loading {
+            text-align: center;
+            padding: 6rem 2rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#rides">Rides</a></li>
+                <li><a href="index.html#gear">Gear</a></li>
+                <li><a href="index.html#community">Community</a></li>
+                <li><a href="blog.html" class="nav-active">Stories</a></li>
+            </ul>
+            <a href="submit.html" class="btn btn-nav">Share a Ride</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- DYNAMIC CONTENT -->
+    <div id="storyRoot">
+        <div class="story-loading">Loading story…</div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <img id="lightboxImg" src="" alt="" />
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function escHtml(str) {
+            return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        async function loadStory() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const root = document.getElementById('storyRoot');
+
+            if (!id) {
+                root.innerHTML = '<div class="story-loading">No story selected. <a href="blog.html">Back to Stories</a></div>';
+                return;
+            }
+
+            try {
+                // Fetch from published list and find matching id
+                const res = await fetch('/api/submissions/published');
+                const data = await res.json();
+                const story = data.find(s => String(s.id) === String(id));
+
+                if (!story) {
+                    root.innerHTML = '<div class="story-loading">Story not found or not yet published. <a href="blog.html">Back to Stories</a></div>';
+                    return;
+                }
+
+                // Update page title
+                document.title = `${story.title} — 4wCycle Community`;
+
+                const date = new Date(story.created_at).toLocaleDateString('en-SG', { day: 'numeric', month: 'long', year: 'numeric' });
+                const initials = story.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+                const heroImg = story.photos && story.photos.length ? `/uploads/${story.photos[0]}` : 'images/community.png';
+
+                const photosHTML = story.photos && story.photos.length > 1
+                    ? `<div class="story-photos">
+              ${story.photos.map(f => `<img src="/uploads/${f}" alt="Ride photo" loading="lazy" />`).join('')}
+             </div>`
+                    : '';
+
+                root.innerHTML = `
+          <!-- HERO -->
+          <section class="story-hero">
+            <img class="story-hero-img" src="${heroImg}" alt="${escHtml(story.title)}" />
+            <div class="story-hero-overlay"></div>
+            <div class="story-hero-content">
+              <span class="tag">Community Story</span>
+              <h1>${escHtml(story.title)}</h1>
+              <div class="story-meta-row">
+                <div class="author-chip">
+                  <div class="avatar">${initials}</div>
+                  <strong>${escHtml(story.name)}</strong>
+                </div>
+                <span>📅 ${date}</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- BODY -->
+          <article class="story-body">
+            <a href="blog.html#community-stories" class="back-link">← Back to Stories</a>
+            <hr class="story-divider" />
+
+            <div class="story-section">
+              <h2>🗺 The Route</h2>
+              <p>${escHtml(story.route)}</p>
+            </div>
+
+            <hr class="story-divider" />
+
+            ${photosHTML}
+
+            <div class="story-section">
+              <h2>📖 The Experience</h2>
+              <p>${escHtml(story.experience)}</p>
+            </div>
+
+            <hr class="story-divider" />
+
+            <div class="cta-row">
+              <h3>Have your own ride story?</h3>
+              <p>Share it with the 4wCycle community — it only takes a few minutes.</p>
+              <a href="submit.html" class="btn btn-primary">📸 Share Your Ride</a>
+            </div>
+          </article>
+
+          <!-- FOOTER -->
+          <footer class="footer">
+            <div class="container footer-inner">
+              <a href="index.html" class="logo">
+                <img src="images/logo.png?v=3" alt="4wCycle logo" class="logo-img" />
+              </a>
+              <p class="footer-copy">© 2025 4wCycle · Singapore's Cycling Community</p>
+            </div>
+          </footer>
+        `;
+
+                // Photo lightbox
+                document.querySelectorAll('.story-photos img').forEach(img => {
+                    img.addEventListener('click', () => {
+                        document.getElementById('lightboxImg').src = img.src;
+                        document.getElementById('lightbox').classList.add('open');
+                    });
+                });
+
+            } catch (e) {
+                root.innerHTML = '<div class="story-loading">Could not load story. <a href="blog.html">Back to Stories</a></div>';
+            }
+        }
+
+        // Lightbox close
+        document.getElementById('lightboxClose').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('open');
+        });
+        document.getElementById('lightbox').addEventListener('click', e => {
+            if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+        });
+
+        loadStory();
+    </script>
+</body>
+
+</html>

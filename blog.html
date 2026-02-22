@@ -357,21 +357,22 @@
                     const excerpt = s.experience.length > 120 ? s.experience.slice(0, 120) + '…' : s.experience;
                     return `
                 <article class="post-card" data-cat="community" style="opacity:1;transform:none;">
-                    <div class="post-card-img" style="position:relative;overflow:hidden;aspect-ratio:16/9;">
+                    <a href="community-story.html?id=${s.id}" class="post-card-img" style="display:block;position:relative;overflow:hidden;aspect-ratio:16/9;">
                         <img src="${photo}" alt="${escHtml(s.title)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
                         <span class="post-category cat-lifestyle">Community</span>
-                    </div>
+                    </a>
                     <div class="post-card-body">
                         <div class="post-meta-row">
                             <span class="post-date">${date}</span>
                             <span class="post-read-time">🗺 ${escHtml(s.route.split(',')[0])}</span>
                         </div>
-                        <h3>${escHtml(s.title)}</h3>
+                        <h3><a href="community-story.html?id=${s.id}">${escHtml(s.title)}</a></h3>
                         <p>${escHtml(excerpt)}</p>
                         <div class="post-author-row small">
                             <div class="author-avatar sm">${initials}</div>
                             <span>${escHtml(s.name)}</span>
                         </div>
+                        <a href="community-story.html?id=${s.id}" class="btn btn-outline" style="margin-top:1rem;font-size:0.82rem;padding:0.45rem 1rem;">Read Full Story →</a>
                     </div>
                 </article>`;
                 }).join('');
